@@ -1,0 +1,140 @@
+
+@import "tailwindcss";
+
+/* Brand Design Tokens */
+
+@theme {
+  --color-primary: #12372A;
+  --color-secondary: #436850;
+  --color-accent: #DDB892;
+  --color-cream: #F8F7F2;
+  --color-dark: #1C2522;
+  --color-muted: #6B7280;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Poppins", sans-serif;
+}
+
+/* Global Styles */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-dark font-body antialiased;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  :focus-visible {
+    outline: 2px solid #436850;
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: #DDB892;
+    color: #12372A;
+  }
+}
+
+/* Reusable Layout Styles */
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+
+  .section-title {
+    @apply font-heading text-3xl md:text-5xl
+           font-semibold text-primary;
+  }
+
+  .section-description {
+    @apply text-muted text-sm md:text-base
+           leading-relaxed;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* Global Accessibility Improvements */
+
+:focus-visible {
+  outline: 3px solid #436850;
+  outline-offset: 4px;
+}
+
+html {
+  scroll-padding-top: 100px;
+}
+
+button:not(:disabled),
+select:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background-color: #12372A;
+  color: #ffffff;
+}
+
+/* Skip Navigation Link */
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #12372A;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Reduced Motion Support */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
