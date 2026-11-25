@@ -9,7 +9,7 @@ import {
   Heart,
 } from 'lucide-react'
 
-import SectionHeading from '../ui/SectionHeading'
+
 import { culturalTips } from '../../data/travelGuideData'
 
 const cultureIcons = {
